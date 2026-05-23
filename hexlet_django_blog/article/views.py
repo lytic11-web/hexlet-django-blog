@@ -4,15 +4,8 @@ from django.shortcuts import render
 # hexlet_django_blog/article/views.py
 from django.http import HttpResponse
 from django.views import View
-from django.shortcuts import render
 
 
 class IndexView(View):
-    def get(self, request, *args, **kwargs):
-        return render(
-            request,
-            "articles/index.html",
-            context={
-                "app_name": "hexlet_django_blog.article",
-            },
-        )
+    def get(self, request, tags, article_id):
+        return HttpResponse(f'Статья номер {article_id}. Тег {tags}')
